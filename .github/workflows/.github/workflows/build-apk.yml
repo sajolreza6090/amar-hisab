@@ -26,13 +26,16 @@ jobs:
         with:
           channel: stable
 
-      - name: Generate Android platform files
+      - name: Check Flutter
+        run: flutter --version
+
+      - name: Generate Android files
         run: flutter create --platforms=android .
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build Release APK
+      - name: Build APK
         run: flutter build apk --release
 
       - name: Upload APK
